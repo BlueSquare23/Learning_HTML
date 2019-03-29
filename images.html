@@ -1,0 +1,79 @@
+<!doctype html>
+<head>
+  <title>Images</title>
+  <meta name="description" content="All about Images">
+  <meta name="keyword" content="images html formatting"
+</head>
+
+<body>
+  <a id="top"></a>
+  <h1>Images!</h1>
+  <p>Click <a href="#bottom" title="Bottom!">here</a> to got to 
+the bottom of the page!</p>
+
+  <a id="section1"></a>
+  <hr>
+
+  <h2>Displaying an Image</h2>
+  <img src="baby_cow.jpg" alt="Cute baby cow!">
+
+  <!-- Note, you many need to resize images to do so on the 
+commandline use the "convert" command. For example run, 
+
+:~$convert myfigure.png -resize 200x200 myfigure.jpg -->
+  
+  <p>Use the "img" tag to link to an image in an html document.
+  <br/> For Example,</p>
+  <p>&lt;img src="URL" alt="image description" &gt;</p>
+  <p>The "img" tag takes two attributes, "src" & "alt"</p>
+  <p>* "src" stands for source and this is the location of the image.</p>
+  <!-- The source of an image can also be a link to a page -->
+  <p>* "alt" stands for Alternate Text and it is often used as a 
+simple description of the image. This can be useful for people who 
+use sceen readers or if for some reason the image is not able to 
+be rendered.</p>
+  
+  <h3>Image Display Size</h3>
+  
+  <p>By default images will display at their actual size.</p>
+  <p>We can modify this with the use of the "width" and 
+"hight" attributes.
+  </br>For example,</p>
+  <p>&lt;img scr="URL/Path" alt="description" width="200px" 
+height="230px"&gt;</p>
+  <p><img src="cute_calf.jpg" alt="Cute Calf Pic" width="200px" 
+height="230px"></p>
+  <p>Note: If you only scale one of these atributes then it will 
+automatically scale the other one while keeping the same aspect 
+ratio.</p>
+  <!-- Note, although this method can be used to fine tune the 
+size you want an image to appear on a page, it is still advisable 
+to keep the image close to the size you want it for reasons of 
+bandwidth usage and page responsivness. -->
+
+  <a id="section2"></a>
+  <hr>
+
+  <h2>Using Images</h2>
+
+  <p>Images can be placed dynamically within a line of text as well. 
+  </br>For example,</p>
+  <p>&lt;p&gt;Text here&lt;img scr="Path" alt="Description" 
+width="50px"&gt;more text!&lt;/a&gt;&lt;/p&gt;</p>
+  <p>Look at this cow <img src="small_cow.png" alt="Small Cow Pic" 
+height="50px"> isn't it cute!</a></p>
+  <p>This can be manipulated better using CSS but it does also work 
+in html</p>
+  
+  <a id="bottom"></a>
+  <hr>
+
+  <h2>Index</h2>
+  
+  <p>Click <a href="#top" title="Top!">here</a> to go to the top 
+of the page!</p>
+  <p><a href="#section1" title="Section 1">Section 1</a></p>
+  <p><a href="#section2" title="Section 2">Section 2</a></p>
+
+</body> 
+</html>

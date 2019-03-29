@@ -1,0 +1,195 @@
+<!doctype html>
+<head>
+  <title>Lists</title>
+  <meta name="description" content="All about html lists">
+  <meta name="keywords" content="lists html formatting"> 
+</head>
+
+<body>
+  <a id="top"></a>
+  <h1>Lists!</h1>
+  <p>Click <a href="#bottom" title="Index">here</a> to go to the 
+index of the page!</p>
+
+  <a id="section1"></a>
+  <hr>
+
+  <h2>Displaying a List</h2>
+
+  <p>There are two types of lists in HTML. Ordered lists use the 
+"ol" tag and are displayed as a numbered set of items. Unordered 
+lists use the "ul" tag and are displayed as a list of bullet 
+points. Both kinds of lists take the "li" attribute which stands 
+for list item.</p>
+  <p>* Source for ordered lists
+  <br>
+    <pre>
+         &lt;ol&gt;
+            &lt;li&gt;List Item&lt;/li&gt;
+         &lt;/ol&gt;
+    </pre>
+  </p>
+  <p>* Rendered</p>
+  <p>Three Cow Facts:</p>
+  <ol>
+     <li>All cows are ladies</li>
+     <li>All cows are vegetarians</li>
+     <li>Cows can sleep standing up</li>
+  </ol>
+  <p><img src="baby_cow.jpg" alt="Cute baby cow!"></p>
+ 
+  <hr>
+
+  <p>Here is the same for unordered lists.</p>
+  <p>* Source</p>
+    <pre>
+         &lt;ul&gt;
+            &lt;li&gt;List Item&lt;/li&gt;
+         &lt;/ul&gt;
+    </pre>
+  </p>    
+  <p>* Rendered</p>
+  <p>Random Unordered Squirrel Facts:</p>
+  <ul>
+     <li>Squirrels may lose 25% of their buried food.</li>
+     <li>Squirrels front teeth never stop growing.</li>
+     <li>New born baby squirrels are about an inch long.</li>
+  </ul>
+  <p><img src="cute_squirrel.jpg" alt="Cute baby cow!" width="200px"></p>
+
+  <a id="section2"></a>
+  <hr>
+
+  <h2>Changing the List Type</h2>
+
+  <p>Lists are not just limited to numbers and bullet points. We 
+can use the list attribute "type" to change how lists are 
+displayed.
+  <br>For example,
+  </p>
+  <p>* Source
+    <pre>
+         &lt;ol type="a"&gt;
+            &lt;li&gt;List Item&lt;/li&gt;
+         &lt;/ol&gt;
+    </pre>
+  </p>
+  <p>* Rendered</p>
+  <ol type="A">
+     <li>List Item</li>
+  </ol>
+  
+  <hr>
+  
+  <p>Here are the possible values for Ordered lists ( ol ):</p>
+  <pre>
+Type	Effect
+a	Alphanumeric - a. b. c.
+A	Uppercase Alphanumeric - A. B. C.
+i	Roman numerals - i. ii. iii.
+I	Uppercase Roman Numerals - I. II. III.
+  </pre>
+
+  <p>Here are the possible values for Unordered lists ( ul ):</p>
+  <pre>
+Type	Effect
+square	Square Bullets
+disk	Disc Bullets
+circle	Circle Bullets
+  </pre>
+
+  <a id="section3"></a>
+  <hr>
+
+  <h2>More About Lists</h2>
+
+  <a id="section3.1"></a>
+  <hr>
+
+  <h3>Playing with the Order</h3>
+
+  <p>You can change the starting number for our ordered lists. To 
+do this we use the "start" attribute.
+  <br>* Ex.
+  </p>
+  <p>&lt;ol start="4"&gt;</p>
+  <p>
+     <pre>
+4. list item
+5. list item
+6. list item
+     </pre>
+  </p>
+
+  <p>For more about reversing and interupting the order of list 
+check out <a 
+href="https://ryanstutorials.net/html-tutorial/html-lists.php#start">Ryan's 
+Guide to HTML.</a></p>
+
+  <a id="section3.2"></a>
+  <hr>
+
+  <h3>Nesting Lists</h3>
+
+  <p>It is possible to have nested lists where one list is 
+included in another list item. They don't have to be the same type 
+so you could, for instance, have an unordered list within an 
+ordered list. There are many places where this is useful. Creating 
+a table of contents is a common situation.</p>
+  <p>For Example,</p>
+  <p>Nested Structure:</p>
+  <ul type="circle">
+     <li>Amphibians</li>
+     <li>Reptiles</li>
+     <li>Mammals</li>
+        <ol type="i">
+           <li>Dogs</li>
+           <li>Cats</li>
+           <li>Squirrels</li>
+           <li>Cows</li>
+           <li>Humans</li>
+      </ol>
+     <li>Insects</li>
+  </ul>
+  
+  <a id="section3.3"></a>
+  <hr>
+
+  <h3>Definition Lists</h3>
+
+  <p>A definition list is used to create a list of pairs of 
+values. It was originally intended to list words and their 
+definitions but may be used for any list of pairs of values.</p>
+  <p>* Source</p>
+  <pre>
+     &lt;dl&gt;
+        &lt;dt&gt;Term&lt;/dt&gt;
+        &lt;dd&gt;Definition&lt;/dd&gt;
+     &lt;/dl&gt;
+  </pre>
+  <p>* Rendered</p>
+     <dl>
+        <dt><b>Cow</b>,</dt>
+        <dd>A fully grown female animal of a domesticated breed of ox, kept to produce milk or beef.</dd>
+     </dl>
+  
+
+  <a id="bottom"></a>
+  <hr>
+  
+  <h2>Index</h2>
+  <p>Click <a href="#top" title="Top!">here</a> to go to the
+top of the page!</p>
+  <h3>Page Sections:</h3>
+  <ul type="circle">
+     <li><a href="#section1" title="Section 1">Section 1, Displaying a List</a></li>
+     <li><a href="#section2" title="Section 2">Section 2, Changing the List Type</a></li>
+     <li><a href="#section3" title="Section 3">Section 3, More About Lists</a></li>
+        <ul type="disk">
+           <li><a href="#section3.1" title="Section 3.1">Section 3.1, Playing with the Order</a></li>
+           <li><a href="#section3.2" title="Section 3.2">Section 3.2, Nesting Lists</a></li>
+           <li><a href="#section3.3" title="Section 3.3">Section 3.3, Definition Lists</a></li>
+        </ul> 
+  </ul>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<head>
+  <title>Links</title>
+  <meta name="description" content="All about links">
+  <meta name="keywords" content="links html formatting lessons">
+</head>
+
+<body>
+  <a id="top"></a>
+  <h1>Links!</h1>
+  <p>Click <a href="#bottom" title="Bottom!">here</a> to go to the bottom of the page!</p>
+
+
+  <a name="section1"></a> <!-- I've noticed that the name anchor doesn't seem to work so well. -->
+  <hr>
+
+  <h2>Simple link</h2>
+
+  <p>The simplest link is created using the <b>&lt;a&gt;</b> tag like this,</p>
+  <p>&lt;a href="location"&gt;link&lt;/a&gt;</p>
+  <p>For example,</p>
+  <p>Visit <a href="https://johnlradford.me">johnlradford.me<a></p>
+  <p>The above example is what is known as a global link meaning that is 
+the path to the front page of that site no matter where you click that 
+link from. However there is also another kind of link known as a,</p>
+
+  <a id="section2"></a> <!-- The id attribute links to the top of the screen so it ought to be put above the hr (line) tag which denotes a new section -->
+  <hr>
+
+  <h2>Relative Link</h2>
+
+  <p>Relative links are named as such because they follow relative 
+paths. An inportant thing to keep in mind about relative links is that 
+they can only be use from a particular location. Whereas a global link 
+can be put in any page anywhere a relative link has to reference a page 
+which lives in the same directory structure as itself.</p>
+  <p>Here is an example of a relative link.</p>
+  <p>* Source,</p>
+  <p>&lt;a href="./more_formatting.html"&gt;Relative link&lt;/a&gt; 
+to a different page from our current location.</p>
+  <p>* Rendered,</p>
+  <p><a href="./more_formatting.html">Relative link</a> to a different page from our current location.</p>
+
+  <a id="section3"></a>
+  <hr>
+
+  <h2>Linking Within Pages</h2>
+  
+  <p>As well as linking to pages, we may also link to specific parts 
+within a page. We may do this by either creating a named anchor or 
+placing an id attribute on a tag that is at the place on the page we 
+would like the link to take us.</p>
+  <p>To link to different section have either an id or anchor tag placed 
+in that section. Think simply link to that tag.</p>
+  <p>For example,</p>
+  <p><a href="#section2">Jump to section 2</a></p> 
+  <p>It is generally advised to use id's rather than names.</p>
+
+  <hr>
+
+  <h2>E-mail links</h2>
+  <a href="section4"></a>
+
+  <p>This is how those work but no one really cares.</p>
+  <p><a href="mailto:fake@email.com">Email me</a>This is not a real 
+email address.</p> 
+
+  <hr>
+
+  <h2>Link Titles</h2>
+  <a href="section5"></a>
+
+  <p>Link titles give make a little title pop up whenever a user hovers 
+over a link. Link titles can be created with the use of title 
+elememnt.</p>
+  <p>* Source,</p>
+  <p>&lt;a href="https://johnlradford.me" title="A Pretty Cool Website!"&gt;johnlradford.me&lt;/a&gt;</p>
+  <p>* Rendered,</p>
+  <p><a href="https://johnlradford.me" title="A Pretty Cool Website!">johnlradford.me</a></p>
+  <p>Hover your mouse over the link!</p>
+  <p></p>
+  <p>Click <a href="#top" title="Top!">here</a> to go to the top of the page!</p>
+  <a id="bottom"></a>
+</body> 
+</html>
