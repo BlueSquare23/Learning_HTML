@@ -1,0 +1,153 @@
+<!doctype html>
+<head>
+  <title>Tables!</title>
+  <meta name="description" content="All about tables in HTML">
+  <meta name="keywords" content="tables html guide">
+</head>
+
+<body>
+  <a id="top"></a>
+  <h1>Tables!</h1>
+  <p>Click <a href="#bottom" title="Index">here</a> to go to the index of the page!</p> 
+
+  <a id="section1"></a>
+  <hr>
+
+  <h2>Displaying a Table</h2>
+ 
+  <p>The basic tage for building tables is the "table" tag. To create rows and columns within the table use 
+the "tr" (table row) tag followed by the "td" (table data) tag. To give your table a border use the 
+'border="1"' attribute within the &lt;table&gt;.
+  
+<br>For Example,</p>
+
+  <p>* Source</p>
+  
+    <pre>
+         &lt;table border="1"&gt;
+            &lt;tr&gt;
+               &lt;td&gt;Content&lt;/td&gt;
+            &lt;/tr&gt;
+         &lt;/table&gt;
+    </pre>
+
+  <p>* Rendered</p>
+     <table border="1">
+        <tr>
+           <td>Content</td>
+           <td>Content</td>
+           <td>Content</td>
+        </tr>
+     </table>
+  
+  <p>You can add additional rows to your tables by stacking the &lt;tr&gt; tags. You can also use the "th" 
+(table headers) tag for columns which you'd like to be headers.
+  <br>For Example,</p>
+     <table border="1">
+        <tr>
+           <th>Heading</th>
+           <th>Heading</th>
+        </tr>
+        <tr>
+           <td>Content</td>
+           <td>Content</td>
+        </tr>
+     </table>
+
+
+  <a id="section2"></a>
+  <hr>
+
+  <h2>Row Groups</h2>
+
+  <p>Further differentiation can be made by the using the "thread," "tbody," and "tfoot" tags. While these 
+tags do not alter the display of the table much they are useful for CSS and can be picked up by screen 
+readers for the visually impared. (View page source)
+  <br>For example,</p>
+  <table border="1">
+     <thead>
+        <tr>
+           <th>Planet</th>
+           <th>Diameter</th>
+           <th>Known Moons</th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr>
+           <td>Earth</td>
+           <td>12,756Km</td>
+           <td>1</td>
+        </tr>
+        <tr>
+           <td>Mars</td>
+           <td>6,794Km</td>
+           <td>2</td>
+        </tr>
+     </tbody>
+     <tfoot>
+        <tr>
+           <td>Average</td>
+           <td>9775Km</td>
+           <td>1.5</td>
+        </tr>
+     </tfoot>
+  </table>
+
+
+  <a id="section3"></a>
+  <hr>
+
+  <h2>Colspans and Rowspans</h2>
+
+  <p>Sometimes it makes sense to have a cell span several rows or several columns. We may achieve this in 
+HTML with the "colspan" and "rowspan" attributes.</p>
+  <p>* Rowspan</p>
+    <p>Some Nonsense Data:</p>
+       <table border="1">
+          <tr>
+             <td colspan="3">100%</td>
+          </tr>
+          <tr>
+             <td>33%</td>
+             <td>33%</td>
+             <td>33%</td>
+          </tr>
+          <tr>
+             <td>33%</td>
+             <td colspan="2">67%</td>
+          </tr>
+       </table>
+
+  <p>* Colspan</p>
+    <p>More Nonsense Data:</p>
+       <table border="1">
+          <tr>
+             <td rowspan="3">100%</td>
+             <td>33%</td>
+             <td>33%</td>
+          </tr>
+          <tr>
+             <td>33%</td>
+             <td rowspan="2">67%</td>
+          </tr>
+          <tr>
+             <td>33%</td>
+          </tr>
+       </table>
+
+
+  <a id="bottom"></a>
+  <hr>
+  
+  <h2>Index</h2>
+  <p>Click <a href="#top" title="Top!">here</a> to go to the top of the page!</p>
+  
+  <h3>Page Sections:</h3>
+  <ul type="circle">
+     <li><a href="#section1" title="Section 1">Section 1, Displaying a Table</a></li>
+     <li><a href="#section2" title="Section 2">Section 2, Row Groups</a></li>
+     <li><a href="#section3" title="Section 3">Section 3, Colspans and Rowspans</a></li>
+  </ul>
+ 
+</body> 
+</html>
