@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+      #empty-container {
+        padding: 0px 0px 20px 0px;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: black">
+    <a name="top"></a>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Intranet</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <script>
+      
+      /* JS Cookie functions copied from W3School */
+      /* https://www.w3schools.com/js/js_cookies.asp */
+      
+      function setCookie(cname, cvalue, exdays) {
+      
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      
+      }
+
+      function getCookie(cname) {
+      
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+      
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+                         
+          while (c.charAt(0) == ' ') {                          
+            c = c.substring(1);
+          }
+                          
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+                            
+      function resetCookie(cname){
+        document.cookie = 
+          cname + 
+          "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                            
+        // Redirect to remove lingering Get params.
+	    window.location.replace("/roku_remote");
+      }
+
+      /* Roku TV API Docs */
+      /* https://developer.roku.com/docs/developer-program/debugging/external-control-api.md */
+
+      function fetchRequest(url) {
+        fetch(url, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain'
+          }
+        });
+      }
+
+      function launchApp(appId) {
+        url = "https://" + 
+              tvProxy + 
+              "/launch/" +
+              appId;
+
+        fetchRequest(url);
+      }
+
+      function pressButton(button){
+        url = "https://" + 
+              tvProxy + 
+              "/keypress/" + 
+              button;
+
+        fetchRequest(url);
+      }
+      
+      function generateButton(command, display) {
+        return buttonPrefix +
+               " onclick='pressButton(\"" +
+               command +
+               "\")'>" +
+               display + 
+               "</button>";
+      }
+
+      function generateLaunchButton(appId, display) {
+        return buttonPrefix +
+               " onclick='launchApp(\"" +
+               appId +
+               "\")'>" +
+               display + 
+               "</button>";
+               
+      }
+    var buttonPrefix = "<button type='button'" +
+        "class='btn btn-primary translate-middle-x'";
+
+    var cookieName = "tv_proxy_cookie";
+    var tvProxy = getCookie(cookieName);
+
+    var rowStart = "<div class='row'>";
+    var rowEnd =  "</div>";
+    
+    var colStart = "<div class='col'>"
+    var colEnd =  "</div>";
+
+    var emptyContainer = "<div id='empty-container' class='container-fluid'></div>";
+    
+    var emptyCol = colStart + colEnd;
+ 	var emptyRow = emptyContainer;
+    
+    var powerButtonOn = generateButton("poweron", "On");
+    var powerButtonOff = generateButton("poweroff", "Off");
+    var backButton = generateButton("back", "Back");
+    var homeButton = generateButton("home", "Home");
+    var upButton = generateButton("up", "⬆️");
+    var leftButton = generateButton("left", "⬅️");
+    var selectButton = generateButton("select", "🔵");
+    var rightButton = generateButton("right", "➡️");
+    var downButton = generateButton("down", "⬇️");
+    var instantReplayButton = generateButton("instantreplay", "🔄");
+    var infoButton = generateButton("info", "Info");
+    var reverseButton = generateButton("rev", "⏮");
+    var playButton = generateButton("play", "⏯");
+    var forwardButton = generateButton("forward", "⏭");
+    var volumeUpButton = generateButton("volumeup", "🔊");
+    var volumeDownButton = generateButton("volumedown", "🔉");
+    var muteButton = generateButton("volumemute", "🔇");
+    // Find full list of appId's here, https://webpi.example.com/tv_proxy/query/apps 
+    var youtubeButton = generateLaunchButton("837", "Youtube");
+    var spotifyButton = generateLaunchButton("22297", "Spotify");
+    var plexButton = generateLaunchButton("13535", "Plex");
+
+    var rowZero = 
+        rowStart +
+        emptyCol +
+        colStart + powerButtonOn + colEnd +
+        emptyCol +
+        colStart + powerButtonOff + colEnd +
+        emptyCol +
+        rowEnd;
+        
+    var rowTwo = 
+        rowStart +
+        emptyCol +
+        colStart + backButton + colEnd +
+        emptyCol +
+        colStart + homeButton + colEnd +
+        emptyCol +
+        rowEnd;
+    
+    var rowFour = 
+        rowStart +
+        emptyCol +
+        emptyCol +
+        colStart + upButton + colEnd +
+        emptyCol +
+        emptyCol +
+        rowEnd;
+        
+    var rowFive = 
+        rowStart +
+        emptyCol +
+        colStart + leftButton + colEnd +
+        colStart + selectButton + colEnd +
+        colStart + rightButton + colEnd +
+        emptyCol +
+        rowEnd;
+        
+    var rowSix = 
+        rowStart +
+        emptyCol +
+        emptyCol +
+        colStart + downButton + colEnd +
+        emptyCol +
+        emptyCol +
+        rowEnd;
+   
+    var rowEight = 
+        rowStart +
+        emptyCol +
+        colStart + instantReplayButton + colEnd +
+        emptyCol +
+        colStart + infoButton + colEnd +
+        emptyCol +
+        rowEnd;
+        
+    var rowTen = 
+        rowStart +
+        emptyCol +
+        colStart + reverseButton + colEnd +
+        colStart + playButton + colEnd +
+        colStart + forwardButton + colEnd +
+        emptyCol +
+        rowEnd;
+
+    var rowEleven = 
+        rowStart +
+        emptyCol +
+        colStart + volumeDownButton + colEnd +
+        colStart + muteButton + colEnd +
+        colStart + volumeUpButton + colEnd +
+        emptyCol +
+        rowEnd;
+
+    var rowTwelve = 
+        rowStart +
+        emptyCol +
+        colStart + youtubeButton + colEnd +
+        colStart + spotifyButton + colEnd +
+        colStart + plexButton + colEnd +
+        emptyCol +
+        rowEnd;
+    
+    var remoteSource = 
+        emptyRow +
+        rowZero +
+        emptyRow +
+        rowTwo +
+        emptyRow +
+        rowFour + 
+        emptyRow +
+        rowFive +
+        emptyRow +
+        rowSix +
+        emptyRow +
+        rowEight +
+        emptyRow +
+        rowTen +
+        emptyRow +
+        rowEleven +
+        emptyRow +
+        rowTwelve;
+        
+    // If there's already a tv_ip cookie use that.
+    if (tvProxy){
+      document.write(remoteSource);
+      var resetButton = 
+          emptyRow + emptyRow + emptyRow +
+          "<button type='button' class='btn btn-danger " +
+          "position-absolute start-50 translate-middle-x'" + // Center button.
+          "onclick='resetCookie(cookieName)'>Reset Proxy Address</button>";
+          
+      document.write(resetButton);
+
+    } else {
+      // Otherwise, prompt the user to enter a secure LAN tv proxy address.
+      var proxyForm = 
+          "<form name='tvs_proxy_form' action='/roku_remote/index.html'> " +
+          "<input type='text' name='tvs_proxy'/>" +
+          "<input type='submit'/>" +
+          "</form>";
+
+      var usageInfo =
+          "This webpage is inteneded to be used as a suplemental remote control web " +
+          "application for Roku TV devices on your LAN. It works by sending <a " +
+          "href='https://developer.roku.com/docs/developer-program/debugging/external-control-api.md'>" +
+          "External Control Protocol (ECP)</a> commands to the TV via the Javascript " +
+          "embedded on this page. Since the web server running the API on the Roku TV is " +
+          "not secured via SSL, it is not possible to send cross origin requests to it via " +
+          "Javascript without violating CORS. To get around CORS, this system requires " +
+          "that you setup a local secure (aka SSL encypted) reverse web proxy, to sit in " +
+          "front of your TVs API and act as an enpoint for this page.";
+
+      var msg = 
+          emptyRow +
+          rowStart +
+          emptyCol +
+          "<div class='col'>" +
+          "<p style='color:white'>" +
+          "<h2 style='color:white'>Please Enter Secure Reverse Proxy URL</h2>" +
+          proxyForm +
+          emptyRow +
+          usageInfo +
+          "</div>" +
+          emptyCol +
+          rowEnd;
+
+      document.write(msg);
+     
+      // Save Proxy Domain GET parameter (if form has been submitted).
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      var proxyDomainGetParam = urlParams.get('tvs_proxy');
+
+	  // Set Proxy Domain Cookie.
+      if (proxyDomainGetParam) {
+        // Strip leading http(s):// from URL.
+        proxyDomainGetParam = proxyDomainGetParam.replace(/^https?:\/\//, '');
+
+        setCookie(cookieName, proxyDomainGetParam, 30);
+        window.location.replace("/roku_remote");
+      }
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
